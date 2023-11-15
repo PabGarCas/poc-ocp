@@ -1,5 +1,5 @@
 <?php
-	if (!(isset($_ENV['DB_HOST'] && isset($_ENV['DB_USER'] && isset($_ENV['DB_PASS'] && isset($_ENV['DB_DATA'])) {
+	if (!(isset($_ENV['DB_HOST']) && isset($_ENV['DB_USER']) && isset($_ENV['DB_PASS']) && isset($_ENV['DB_DATA'])) {
 		die("Variables de entorno no configuradas.");						      
 	}
 					      
