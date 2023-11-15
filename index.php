@@ -1,9 +1,14 @@
-<?php
-	if (!(isset($_ENV['DB_HOST']) && isset($_ENV['DB_USER']) && isset($_ENV['DB_PASS']) && isset($_ENV['DB_DATA']))) {
+<?php	
+	$host = getenv('DB_HOST');
+	$user = getenv('DB_USER');
+	$pass = getenv('DB_PASS');
+	$data = getenv('DB_DATA');
+
+	if ($host == false || $user == false || $pass == false || $data == false) {
 		die("Variables de entorno no configuradas.");						      
 	}
 					      
-	$m = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_ENV['DB_DATA']);
+	$m = new mysqli($host, $user, $pass, $data);
 	$r = $m->query("SELECT * FROM acceso_nginx");
 
 	echo "<table border='1'>";
